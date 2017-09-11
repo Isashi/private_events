@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
 
 
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show, :index]
 	match '/signup', to: 'users#new', via: 'get'
 end
