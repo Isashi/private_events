@@ -1,0 +1,11 @@
+<% provide(:title, @event.title) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        Welcome to the event: <%= @event.title.capitalize %><br>
+        The creator_id is: <%= @event.creator_id %>
+      </h1>
+    </section>
+  </aside>
+</div>
