@@ -1,0 +1,14 @@
+<% provide(:title, 'Login') %>
+<% provide(:button_text, 'Login in my account') %>
+<h1>Login</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+		<%= form_for(:session, url: login_path)  do |f| %>
+		  <%= f.label :email %>
+  		<%= f.email_field :email, class: 'form-control' %>
+
+  		<%= f.submit yield(:button_text), class: "btn btn-primary" %>
+		<% end %>
+  </div>
+</div>
