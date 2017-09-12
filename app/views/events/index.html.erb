@@ -4,12 +4,22 @@
 <%= will_paginate %>
 
 <ul class="events">
-  <% @events.each do |event| %>
+	<h3>Upcoming events:</h3>
+  <% @events_upcoming.each do |upcoming_event| %>
     <li>
-      Event: 
-      <%= link_to event.title, event %>
+      <%= link_to upcoming_event.title, upcoming_event %>
       Created by: 
-			<%= @user.find_by(:id => event.creator_id).name %>
+			<%= @user.find_by(:id => upcoming_event.creator_id).name %>
+    </li>
+  <% end %>
+  <br>
+  <br>
+  <h3>Past events:</h3>
+  <% @events_past.each do |past_event| %>
+    <li>
+      <%= link_to past_event.title, past_event %>
+      Created by: 
+			<%= @user.find_by(:id => past_event.creator_id).name %>
     </li>
   <% end %>
 </ul>

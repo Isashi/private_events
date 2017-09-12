@@ -13,6 +13,8 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.paginate(page: params[:page])
+    @events_upcoming = Event.upcoming.paginate(page: params[:upcoming])
+    @events_past = Event.past.paginate(page: params[:past])
     @user = User.all
   end
 
@@ -24,6 +26,6 @@ class EventsController < ApplicationController
   private
 
     def event_params
-      params.require(:event).permit(:title)
+      params.require(:event).permit(:title, :location, :description, :date)
     end
 end
