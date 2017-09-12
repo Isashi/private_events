@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 	match '/signup', to: 'users#new', via: 'get'
 
 	resources :events, only: [:new, :create, :show, :index]
+  resources :invites,             only: [:create]
+
 end

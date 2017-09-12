@@ -4,6 +4,21 @@
       <h1>
         Welcome to the event: <%= @event.title.capitalize %><br>
         The host is: <%= User.find_by(:id => @event.creator_id).name %>
+
+        <% if logged_in? %>
+        <div id="attend_form">
+            <%= form_for(current_user.invites.build(attended_event_id: @event.id)) do |f| %>
+              <div><%= f.hidden_field :attended_event_id %></div>
+              <%= f.submit "Attend", class: "btn btn-large btn-primary" %>
+            <% end %>
+        </div>
+        <% end %>
+
+        <br>
+        Attendees:
+				<% @event.attendees.each do |attendee| %>
+				   <ol><%= link_to attendee.name, attendee %></ol>
+				<% end %>
       </h1>
     </section>
   </aside>
