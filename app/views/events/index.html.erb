@@ -6,8 +6,10 @@
 <ul class="events">
   <% @events.each do |event| %>
     <li>
-      <%= link_to event.title, event %> - 
-      <%= link_to event.creator_id, event %>
+      Event: 
+      <%= link_to event.title, event %>
+      Created by: 
+			<%= @user.find_by(:id => event.creator_id).name %>
     </li>
   <% end %>
 </ul>

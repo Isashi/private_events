@@ -4,6 +4,6 @@
     <%= event.title %>
   </span>
   by <span class="author">
-    <%= event.creator_id %>
+    <%= User.find_by(:id => event.creator_id).name %>
   </span>
 </li>
